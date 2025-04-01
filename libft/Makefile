@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: we <we@student.42.fr>                      +#+  +:+       +#+         #
+#    By: kkhai-ki <kkhai-ki@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 17:12:39 by kkhai-ki          #+#    #+#              #
-#    Updated: 2024/08/29 12:18:38 by we               ###   ########.fr        #
+#    Updated: 2025/04/01 15:37:55 by kkhai-ki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ RED = \033[0;31m
 RESET = \033[0m
 ORANGE = \033[0;38;5;166m
 
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Wpedantic -std=c99 -g
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -Wpedantic -g3
 
 INCLUDE = -Iinclude
 

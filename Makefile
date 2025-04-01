@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+         #
+#    By: kkhai-ki <kkhai-ki@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2024/09/16 09:13:00 by tjun-yu          ###   ########.fr        #
+#    Updated: 2025/04/01 15:38:00 by kkhai-ki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ RESET	= \033[0m
 ORANGE	= \033[0;38;5;166m
 
 # Compiler & Flags
-CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -Wpedantic -g -DREADLINE_LIBRARY
+CC		= cc
+CFLAGS	= -Wall -Wextra -Werror -Wpedantic -g3 -DREADLINE_LIBRARY
 
 # Directories
 RL_DIR		= readline
