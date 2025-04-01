@@ -33,19 +33,35 @@ Finished: 2024-9-25. Grade: 125/100.
 - `"` Double quotes - Prevent interpretation of meta-characters except `$` expansion.
 - `$VAR` Environment variables expansion.
 - `$?` Expands to the last exit status.
-- `*` Wildcards expansion.
+- `*` Wildcards expansion for current working directory.
 - `|` Pipes - The output of each command in the pipeline is connected via a pipe to the input of the next command.
 - `&&` and `||` operators - Used to control execution flow between commands or pipelines.
 - `(` with `)` - Placing a list of commands between parentheses forces the shell to create a subshell.
+- Handles unbalanced quotes by prompting until a closing quote is found.
 
-### Builtins:
-- `echo` with option `-n`.
-- `cd` with relative or absolute path and `-` for previous working directory.
-- `pwd` without options.
-- `export` without options.
-- `unset` without options.
-- `env` without options.
-- `exit` without options.
+
+### Builtins and Signals:
+- `echo` with option `-n`
+- `cd` with relative or absolute path and `-` for previous working directory
+- `pwd` without options
+- `export` without options
+- `unset` without options
+- `env` without options
+- `exit` without options
+- `ctrl-C`, `ctrl-D` and `ctrl-\` behaves like in Bash
+
+## Process Overview
+1. Envionment variables are initialised.
+2. Terminal attributes are set.
+3. Input is received via readline and saved to history.
+4. Lexer tokenises input and stores them in a linked-list.
+5. Parser uses operator precedence climbing to build an AST from the token list.
+6. Here document interrups happens after the construction of AST.
+7. Expansion of environment variables, quotes and wildcards occur before the execution of each respective node.
+8. Redirections for each simple command are processed before the execution.
+9. Execute the command within the node.
+10. Repeat 7 to 9 until all simple command nodes have been executed.
+11. Clean up and free unused memory before prompting for next input.
 
 ## Dependencies
 - GCC/Clang Compiler
@@ -77,4 +93,13 @@ $ make
 
 # Run program
 $ ./minishell
+```
+
+Example session:
+```sh
+$ ./minishell
+minishell> echo Hello World
+Hello World
+minishell> exit
+$
 ```
